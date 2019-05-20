@@ -10,18 +10,13 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
 
-security:
-  jwt:
-    token:
-      secret-key: secret-key
-      expire-length: 1000000
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
 
 server:
-  port : 9090
+  port : 9091
 
 UserController:
-  signin: Authenticates user and returns its JWT token.
   signup: Creates user and returns its JWT token
   delete: Deletes specific user by username
   search: Returns specific user by username
-  me: Returns current user's data
